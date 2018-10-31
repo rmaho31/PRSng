@@ -19,7 +19,7 @@ export class UserService {
     return this.http.get(url+"List") as Observable<JsonResponse>;
   }
 
-  create(user: User): Observable<JsonResponse> {
+  add(user: User): Observable<JsonResponse> {
       return this.http.post(url+"Add", user) as Observable<JsonResponse>;
   } 
   
@@ -27,8 +27,8 @@ export class UserService {
     return this.http.get(url+"Get/"+id) as Observable<JsonResponse>;
   }
   
-  remove(id): Observable<JsonResponse> {
-      return this.http.get(url+"Remove/"+id) as Observable<JsonResponse>;
+  remove(user: User): Observable<JsonResponse> {
+      return this.http.post(url+"Remove", user) as Observable<JsonResponse>;
   }
   
   change(user: User): Observable<JsonResponse> {
