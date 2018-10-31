@@ -1,0 +1,9 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle active" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">{{menu.title}}</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown01">
+    <ng-container *ngFor="let item of items">
+      <a class="dropdown-item" routerLink="{{item.route}}" title="{{item.display}}">{{item.title}}</a>
+    </ng-container>
+  </div>
+</li>
