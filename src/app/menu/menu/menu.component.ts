@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { Menu } from '../menu'
 
 @Component({
@@ -19,12 +19,11 @@ export class MenuComponent implements OnInit {
     new Menu("About")
 
   ]
-  title: string = this.router.url;
-
-  constructor(private router: Router) { }
-
+  
+  constructor(private route: ActivatedRoute) { }
+  
   ngOnInit() {
-    console.log(this.title);
+    console.log();
   }
 
 }
