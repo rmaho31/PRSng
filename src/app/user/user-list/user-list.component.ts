@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../classes/user';
-//import { SortPipe } from '@pipe/sort.pipe';
+import { BoolDisplayPipe } from '../../pipe/bool-display.pipe';
+import { SortPipe } from '../../pipe/sort.pipe';
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +12,7 @@ import { User } from '../../classes/user';
 export class UserListComponent implements OnInit {
   users: User[];
   title: string = "User List";
-  sortBy: string = "Id";
+  sortBy: string = "id";
 
   constructor(private userSvc: UserService) { }
 
