@@ -1,0 +1,55 @@
+<div class='component-content'>
+  <div class=''>
+    <div class='lefthalf'>
+      <span class='component-title'>[{{title}}]</span>
+      <span><a routerLink='/lineitems/create'><img id='createnew' width='20' height='20' src='assets/lineitemCreate.png' title='Add New'></a></span>
+    </div>
+  </div>
+  <div *ngIf="!lineitem">
+    <img src="assets/loading.gif">
+  </div>
+  <table class="table table-sm" *ngIf='lineitem'>
+    <tr>
+      <td>Code</td>
+      <td>{{lineitem.code}}</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{lineitem.name}}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{lineitem.address}}</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>{{lineitem.city}}</td>
+    </tr>
+    <tr>
+        <td>State</td>
+        <td>{{lineitem.state}}</td>
+      </tr>
+      <tr>
+          <td>Zip</td>
+          <td>{{lineitem.zip}}</td>
+        </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{lineitem.phoneNumber}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{lineitem.email}}</td>
+    </tr>
+    <tr>
+      <td>PreApproved</td>
+      <td>{{lineitem.preApproved?"Yes":"No"}}</td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <a routerLink='/lineitems/edit/{{lineitem.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+        <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>

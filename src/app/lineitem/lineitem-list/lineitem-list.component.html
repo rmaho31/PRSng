@@ -1,0 +1,29 @@
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>{{title}}</span>
+    <span><a routerLink='/lineitems/create'>
+        <img id='createnew' width='20' height='20' src='assets/userCreate.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<div *ngIf='!lineitems'>
+  <img src='assets/loading.gif'>
+</div>
+<table class="table table-sm" *ngIf='lineitems'>
+  <tr>
+    <th class="table-secondary btn-link"><u>User</u></th>
+    <th class="table-secondary btn-link"><u>PurchaseRequest</u></th>
+    <th class="table-secondary btn-link"><u>Product</u></th>
+    <th class="table-secondary btn-link"><u>Quantity</u></th>
+  </tr>
+  <tr *ngFor='let lineitem of lineitems'>
+    <td>{{lineitem.purchaseRequest.user.userName}}</td>
+    <td>{{lineitem.purchaseRequest.description}}</td>
+    <td>{{lineitem.product.name}}</td>
+    <td>{{lineitem.quantity}}</td>
+    <td class='actions'>
+      <a routerLink='/lineitems/detail/{{lineitem.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
+      <a routerLink='/lineitems/edit/{{lineitem.id}}'><img src='assets/userEdit.png' width='30' height='30' title='Edit'></a>
+    </td>
+  </tr>
+</table>

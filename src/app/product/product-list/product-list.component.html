@@ -1,0 +1,29 @@
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>{{title}}</span>
+    <span><a routerLink='/products/create'>
+        <img id='createnew' width='20' height='20' src='assets/userCreate.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<div *ngIf='!products'>
+  <img src='assets/loading.gif'>
+</div>
+<table class="table table-sm" *ngIf='products'>
+  <tr>
+    <th class="table-secondary btn-link"><u>Vendor Name</u></th>
+    <th class="table-secondary btn-link"><u>PartNumber</u></th>
+    <th class="table-secondary btn-link"><u>Name</u></th>
+    <th class="table-secondary btn-link"><u>Price</u></th>
+  </tr>
+  <tr *ngFor='let product of products'>
+    <td>{{product.vendor.name}}</td>
+    <td>{{product.partNumber}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td class='actions'>
+      <a routerLink='/products/detail/{{product.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
+      <a routerLink='/products/edit/{{product.id}}'><img src='assets/userEdit.png' width='30' height='30' title='Edit'></a>
+    </td>
+  </tr>
+</table>

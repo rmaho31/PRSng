@@ -1,0 +1,39 @@
+<div class='component-content'>
+  <div class='lefthalf'>
+    <span class='component-title'>{{title}}</span>
+    <span><a routerLink='/vendors/create'>
+        <img id='createnew' width='20' height='20' src='assets/userCreate.png' title='Add New'></a>
+    </span>
+  </div>
+</div>
+<div *ngIf='!vendors'>
+  <img src='assets/loading.gif'>
+</div>
+<table class="table table-sm" *ngIf='vendors'>
+  <tr>
+    <th class="table-secondary btn-link"><u>Code</u></th>
+    <th class="table-secondary btn-link"><u>Name</u></th>
+    <th class="table-secondary btn-link"><u>Address</u></th>
+    <th class="table-secondary btn-link"><u>City</u></th>
+    <th class="table-secondary btn-link"><u>State</u></th>
+    <th class="table-secondary btn-link"><u>Zip</u></th>
+    <th class="table-secondary btn-link"><u>Phonee Number</u></th>
+    <th class="table-secondary btn-link"><u>Email</u></th>
+    <th>PreApproved</th>
+  </tr>
+  <tr *ngFor='let vendor of vendors'>
+    <td>{{vendor.code}}</td>
+    <td>{{vendor.name}}</td>
+    <td>{{vendor.address}}</td>
+    <td>{{vendor.city}}</td>
+    <td>{{vendor.state}}</td>
+    <td>{{vendor.zip}}</td>
+    <td>{{vendor.phoneNumber}}</td>
+    <td>{{vendor.email}}</td>
+    <td>{{vendor.preApproved?"Yes":"No"}}</td>
+    <td class='actions'>
+      <a routerLink='/vendors/detail/{{vendor.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
+      <a routerLink='/vendors/edit/{{vendor.id}}'><img src='assets/userEdit.png' width='30' height='30' title='Edit'></a>
+    </td>
+  </tr>
+</table>
