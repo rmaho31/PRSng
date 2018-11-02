@@ -1,5 +1,7 @@
 # PRSng
 
+This is the capstone project for The CincyCodeIT Java Software Development Bootcamp at Max Technical Training.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
 ## Development server
