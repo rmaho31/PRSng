@@ -18,6 +18,7 @@ import { PurchaseRequestListComponent } from './purchaserequest/purchaserequest-
 import { PurchaseRequestCreateComponent } from './purchaserequest/purchaserequest-create/purchaserequest-create.component';
 import { PurchaseRequestDetailComponent } from './purchaserequest/purchaserequest-detail/purchaserequest-detail.component';
 import { PurchaseRequestEditComponent } from './purchaserequest/purchaserequest-edit/purchaserequest-edit.component';
+import { PurchaseRequestReviewComponent } from './purchaserequest/purchaserequest-review/purchaserequest-review.component'
 import { LineItemListComponent } from './lineitem/lineitem-list/lineitem-list.component';
 import { LineItemCreateComponent } from './lineitem/lineitem-create/lineitem-create.component';
 import { LineItemDetailComponent } from './lineitem/lineitem-detail/lineitem-detail.component';
@@ -48,8 +49,9 @@ const routes: Routes = [
   {path:'purchaserequests/create', component: PurchaseRequestCreateComponent},
   {path:'purchaserequests/detail/:id', component: PurchaseRequestDetailComponent},
   {path:'purchaserequests/edit/:id', component: PurchaseRequestEditComponent},
-  {path:'lineitems/list', component: LineItemListComponent},
-  {path:'lineitems/create', component: LineItemCreateComponent},
+  {path:'purchaserequests/review', component: PurchaseRequestReviewComponent},
+  {path:'lineitems/list/:id', component: LineItemListComponent},
+  {path:'lineitems/create/:id', component: LineItemCreateComponent},
   {path:'lineitems/detail/:id', component: LineItemDetailComponent},
   {path:'lineitems/edit/:id', component: LineItemEditComponent},
   {path:'**', component: UserListComponent}
