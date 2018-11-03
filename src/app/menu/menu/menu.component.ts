@@ -15,7 +15,6 @@ export class MenuComponent implements OnInit {
     new Menu("Vendors"),
     new Menu("Products"),
     new Menu("PurchaseRequests"),
-    new Menu("LineItems"),
     new Menu("About")
 
   ]
