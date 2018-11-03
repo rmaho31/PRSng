@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   title: string = "Product List";
   sortBy: string = "id";
+  searchTerm: string = '';
 
   constructor(private productSvc: ProductService) { }
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service'
 import { Product } from '../../classes/product';
+import { Vendor } from 'src/app/classes/vendor';
+import { VendorService } from 'src/app/services/vendor.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -9,12 +11,14 @@ import { Product } from '../../classes/product';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-
+  vendors: Vendor[];
+  
   product: Product;
 
   constructor(private productsvc: ProductService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private vendorsvc: VendorService) { }
 
   ngOnInit() {
     this.productsvc.get(this.route.snapshot.params.id)
@@ -26,6 +30,10 @@ export class ProductEditComponent implements OnInit {
           this.product = res.data;
         }
       })
+      this.vendorsvc.list()
+      .subscribe(res => {
+        this.vendors = res.data;
+      });
   }
 
   save() {
@@ -38,6 +46,10 @@ export class ProductEditComponent implements OnInit {
           this.router.navigateByUrl('/products/list');
         }
       })
+  }
+
+  compareFn(v1, v2): boolean {
+    return v1.id === v2.id;
   }
 
 }

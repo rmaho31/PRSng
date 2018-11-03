@@ -2,7 +2,7 @@
   <div class='lefthalf'>
     <span class='component-title'>{{title}}</span>
     <span><a routerLink='/products/create'>
-        <img id='createnew' width='20' height='20' src='assets/userCreate.png' title='Add New'></a>
+        <img id='createnew' width='20' height='20' src='assets/createNew.png' title='Add New'></a>
     </span>
   </div>
 </div>
@@ -16,7 +16,7 @@
     <th class="table-secondary btn-link"><u>Name</u></th>
     <th class="table-secondary btn-link"><u>Price</u></th>
   </tr>
-  <tr *ngFor='let product of products'>
+  <tr *ngFor='let product of products | search : searchText'>
     <td>{{product.vendor.name}}</td>
     <td>{{product.partNumber}}</td>
     <td>{{product.name}}</td>

@@ -6,8 +6,8 @@
     <div class="form-group row">
       <label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
       <div class=' col-sm-6'>
-        <select [(ngModel)]='product.vendor' class='form-control' name='vendor' id='vendor'>
-          <option *ngFor="let vendor of vendors" [ngValue]="vendor">{{vendor.name}}</option>
+        <select [(ngModel)]='product.vendor' class='form-control' name='vendor' id='vendor' [compareWith]='compareFn'>
+          <option *ngFor="let vendor of vendors" [ngValue]="vendor" [selected]="vendor.id === product.vendor.id">{{vendor.name}}</option>
         </select>
       </div>
     </div>
