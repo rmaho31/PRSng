@@ -1,8 +1,52 @@
 <div class='component-content'>
   <div class='lefthalf'>
+    <span class='component-title'>PurchaseRequest</span>
+  </div>
+</div>
+<div *ngIf='!purchaseRequest'>
+  <img src='assets/loading.gif'>
+</div>
+<table class="table table-sm" *ngIf='purchaseRequest'>
+  <tr>
+    <td>User</td>
+    <td>{{purchaseRequest.user.userName}}</td>
+    <td>Description</td>
+    <td>{{purchaseRequest.description}}</td>
+  </tr>
+  <tr>
+    <td>Justification</td>
+    <td>{{purchaseRequest.justification}}</td>
+    <td>Date Needed</td>
+    <td>{{purchaseRequest.dateNeeded}}</td>
+  </tr>
+  <tr>
+    <td>Delivery Mode</td>
+    <td>{{purchaseRequest.deliveryMode}}</td>
+    <td>Status</td>
+    <td>{{purchaseRequest.status}}</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td>{{purchaseRequest.total}}</td>
+    <td>Submitted Date</td>
+    <td>{{purchaseRequest.submittedDate}}</td>
+  </tr>
+  <tr>
+    <td>Reason For Rejection</td>
+    <td>{{purchaseRequest.reasonForRejection}}</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <a routerLink='/purchaserequests/edit/{{purchaseRequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
+      <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
+    </td>
+  </tr>
+</table>
+<div class='component-content'>
+  <div class='lefthalf'>
     <span class='component-title'>{{title}}</span>
-    <span><a routerLink='/lineitems/create'>
-        <img id='createnew' width='20' height='20' src='assets/userCreate.png' title='Add New'></a>
+    <span><a routerLink='/lineitems/create/{{purchaseRequest.id}}'>
+        <img id='createnew' width='20' height='20' src='assets/createNew.png' title='Add New'></a>
     </span>
   </div>
 </div>
@@ -11,15 +55,13 @@
 </div>
 <table class="table table-sm" *ngIf='lineitems'>
   <tr>
-    <th class="table-secondary btn-link"><u>User</u></th>
-    <th class="table-secondary btn-link"><u>PurchaseRequest</u></th>
     <th class="table-secondary btn-link"><u>Product</u></th>
+    <th class="table-secondary btn-link"><u>Price</u></th>
     <th class="table-secondary btn-link"><u>Quantity</u></th>
   </tr>
   <tr *ngFor='let lineitem of lineitems'>
-    <td>{{lineitem.purchaseRequest.user.userName}}</td>
-    <td>{{lineitem.purchaseRequest.description}}</td>
     <td>{{lineitem.product.name}}</td>
+    <td>{{lineitem.product.price}}</td>
     <td>{{lineitem.quantity}}</td>
     <td class='actions'>
       <a routerLink='/lineitems/detail/{{lineitem.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
