@@ -24,7 +24,7 @@ export class LineItemService {
   } 
   
   get(id): Observable<JsonResponse> {
-    return this.http.get(url+"Get/"+id) as Observable<JsonResponse>;
+    return this.http.get(url+"Get/LineItem/"+id) as Observable<JsonResponse>;
   }
   
   remove(lineitem: LineItem): Observable<JsonResponse> {
@@ -33,6 +33,10 @@ export class LineItemService {
   
   change(lineitem: LineItem): Observable<JsonResponse> {
 		return this.http.post(url+"Change", lineitem) as Observable<JsonResponse>;
+  }
+
+  getPrli(id): Observable<JsonResponse> {
+    return this.http.get(url+"Get/Prli/"+id) as Observable<JsonResponse>;
   }
   
   constructor(private http: HttpClient) { }
