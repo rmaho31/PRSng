@@ -18,15 +18,14 @@ export class UserLoginComponent implements OnInit {
 		this.userSvc.login(this.user)
 			.subscribe(jsr => {
 				if(jsr.code == 0) {
-					if(this.sysSvc.data.user.rememberMe === true){
+					if(this.sysSvc.rememberMe === true){
 						this.cookiesvc.set('userName', jsr.data.userName);
 						this.cookiesvc.set('password', jsr.data.password);
 					}
-					this.cookiesvc.set('Test', 'Hello World');
 					console.log(jsr);
-					this.user = jsr.data[0];
-					this.sysSvc.data.user.instance = this.user;
-					this.sysSvc.data.user.loggedIn = true;
+					this.user = jsr.data;
+					this.sysSvc.user = this.user;
+					this.sysSvc.loggedIn = true;
 					this.router.navigateByUrl('/home');
 				}
 				else {
