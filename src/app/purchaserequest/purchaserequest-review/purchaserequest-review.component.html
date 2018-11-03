@@ -1,29 +1,29 @@
-<app-menu></app-menu>
 <div class='component-content'>
   <div class=''>
     <div class='lefthalf'>
-      <span class='component-title'>[{{title}}]</span> 
+      <span class='component-title'>[{{title}}]</span>
     </div>
   </div>
-	<p *ngIf='!requests'>Loading ...</p>
-	<table class='table table-sm' *ngIf='requests'>
-      <tr>
-        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('id')">Id</a></th>
-        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('userName')">UserName</a></th>
-        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('description')">Description</a></th>
-        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('status')">Status</a></th>
-        <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('total')">Total</a></th>
-        <th>Action</th>
-      </tr>
-      <tr *ngFor='let purchaserequest of requests | sort:sortBy'>
-        <td>{{purchaserequest.id}}</td>
-        <td>{{purchaserequest.userName}}</td>
-        <td>{{purchaserequest.description}}</td>
-        <td>{{purchaserequest.status}}
-        <td>{{purchaserequest.total | currency}}
-        <td class='actions'>
-          <a routerLink='/purchaserequest/approve/{{purchaserequest.Id}}'><img src='assets/rejectReview.png' width='20' height='20' title='Review'></a>
-        </td>
-      </tr>
-	</table>
+  <p *ngIf='!purchaserequests'>Loading ...</p>
+  <table class='table table-sm' *ngIf='purchaserequests'>
+    <tr>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('id')">Id</a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('userName')">UserName</a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('description')">Description</a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('status')">Status</a></th>
+      <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('total')">Total</a></th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor='let purchaserequest of purchaserequests | sort:sortBy'>
+      <td>{{purchaserequest.id}}</td>
+      <td>{{purchaserequest.userName}}</td>
+      <td>{{purchaserequest.description}}</td>
+      <td>{{purchaserequest.status}}
+      <td>{{purchaserequest.total | currency}}
+      <td class='actions'>
+        <a routerLink='/lineitems/list/{{purchaserequest.id}}'><img src='assets/requestLines.png' width='20'
+            height='20' title='Review'></a>
+      </td>
+    </tr>
+  </table>
 </div>
