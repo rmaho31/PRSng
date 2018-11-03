@@ -34,7 +34,10 @@ export class ProductService {
   change(product: Product): Observable<JsonResponse> {
 		return this.http.post(url+"Change", product) as Observable<JsonResponse>;
   }
+
+  googleS(term: string): Observable<JsonResponse> {
+		return this.http.get("https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=017576662512468239146:omuauf_lfve&q="+ term) as Observable<JsonResponse>;
+  }
   
   constructor(private http: HttpClient) { }
-
 }

@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
+import { User } from '../classes/user';
 
 @Injectable()
 export class SystemService {
-	data = {
-		about: 'System Service',
-		user: {
-			loggedIn: false,
-			rememberMe: false,
-			instance: null
-		}
-	};
+	loggedIn: boolean = false;
+	rememberMe: boolean = false;
+	user: User = null;
 
-	get debug() { return this.data; }
 
-	constructor() {}
-	
+	setUser(user: User) {
+		this.user = user;
+	}
+
+	getUser() {
+		return this.user;
+	}
+
+	constructor() { }
+
 }

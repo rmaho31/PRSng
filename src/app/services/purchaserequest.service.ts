@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PurchaseRequest } from '../classes/purchaserequest'
 import { JsonResponse } from '../util/json-response.class'
+import { User } from '../classes/user';
 
 const url: string = 'http://localhost:8080/PurchaseRequests/';
 
@@ -33,6 +34,10 @@ export class PurchaseRequestService {
   
   change(purchaserequest: PurchaseRequest): Observable<JsonResponse> {
 		return this.http.post(url+"Change", purchaserequest) as Observable<JsonResponse>;
+  }
+
+  review(user: User): Observable<JsonResponse> {
+		return this.http.post(url+"List/Review", user) as Observable<JsonResponse>;
   }
   
   constructor(private http: HttpClient) { }
