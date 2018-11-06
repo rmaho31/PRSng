@@ -1,6 +1,6 @@
 <div class='component-content'>
   <div class='lefthalf'>
-    <span class='component-title'>{{title}}</span>
+    <span class='component-title'>{{title}} | </span>
     <span><a routerLink='/vendors/create'>
         <img id='createnew' width='20' height='20' src='assets/createNew.png' title='Add New'></a>
     </span>
@@ -11,17 +11,17 @@
 </div>
 <table class="table table-sm" *ngIf='vendors'>
   <tr>
-    <th class="table-secondary btn-link"><u>Code</u></th>
-    <th class="table-secondary btn-link"><u>Name</u></th>
-    <th class="table-secondary btn-link"><u>Address</u></th>
-    <th class="table-secondary btn-link"><u>City</u></th>
-    <th class="table-secondary btn-link"><u>State</u></th>
-    <th class="table-secondary btn-link"><u>Zip</u></th>
-    <th class="table-secondary btn-link"><u>Phonee Number</u></th>
-    <th class="table-secondary btn-link"><u>Email</u></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('code')"><u>Code</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('name')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('address')"><u>Address</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('city')"><u>City</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('state')"><u>State</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('zip')"><u>Zip</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('phoneNumber')"><u>Phonee Number</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('email')"><u>Email</u></a></th>
     <th>PreApproved</th>
   </tr>
-  <tr *ngFor='let vendor of vendors'>
+  <tr *ngFor='let vendor of vendors | sort: {sortBy: sortBy, direction: direction}'>
     <td>{{vendor.code}}</td>
     <td>{{vendor.name}}</td>
     <td>{{vendor.address}}</td>

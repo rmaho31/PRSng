@@ -11,7 +11,8 @@ import { Vendor } from '../../classes/vendor';
 export class VendorListComponent implements OnInit {
   vendors: Vendor[];
   title: string = "Vendor List";
-  sortBy: string = "Id";
+  sortBy: string = "name";
+  direction: number = 1;
 
   constructor(private vendorSvc: VendorService) { }
 
@@ -24,5 +25,6 @@ export class VendorListComponent implements OnInit {
 
   setSortBy(column: string): void {
     this.sortBy = column;
+    this.direction *= -1;
   }
 }
