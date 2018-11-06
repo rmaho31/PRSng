@@ -12,7 +12,8 @@ import { SortPipe } from '../../pipe/sort.pipe';
 export class UserListComponent implements OnInit {
   users: User[];
   title: string = "User List";
-  sortBy: string = "id";
+  sortBy: string = "userName";
+  direction: number = 1;
 
   constructor(private userSvc: UserService) { }
 
@@ -25,5 +26,6 @@ export class UserListComponent implements OnInit {
 
   setSortBy(column: string): void {
     this.sortBy = column;
+    this.direction *= -1;
   }
 }
