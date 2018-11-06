@@ -13,7 +13,7 @@ export class PurchaseRequest {
 
     constructor(id: number = 0, user: User = null, description: string = '', justification: string = '',
         dateNeeded: Date = null, deliveryMode: string = '', status: string = '', total: number = 0,
-        submittedDate: Date = null, reasonForRejection: string = null) {
+        submittedDate: Date = null, reasonForRejection: string = '') {
         this.id = id;
         this.user = user;
         this.description = description;
