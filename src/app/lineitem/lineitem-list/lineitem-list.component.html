@@ -29,18 +29,18 @@
     <td>Total</td>
     <td>{{purchaseRequest.total}}</td>
     <td>Submitted Date</td>
-    <td>{{purchaseRequest.submittedDate}}</td>
+    <td>{{purchaseRequest.submittedDate | date}}</td>
   </tr>
   <tr>
     <td>Reason For Rejection</td>
     <td>{{purchaseRequest.reasonForRejection}}</td>
   </tr>
-  <tr>
+  <!-- <tr>
     <td colspan="2">
       <a routerLink='/purchaserequests/edit/{{purchaseRequest.id}}' class='btn btn-primary' title='Edit'>Edit</a>
       <button (click)="remove()" class='btn btn-danger' title='Delete'>Remove</button>
     </td>
-  </tr>
+  </tr> -->
 </table>
 <div class='component-content'>
   <div class='lefthalf'>

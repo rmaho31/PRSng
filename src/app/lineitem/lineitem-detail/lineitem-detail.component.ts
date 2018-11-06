@@ -13,6 +13,7 @@ import { delay } from 'rxjs/internal/operators';
 export class LineItemDetailComponent implements OnInit {
 
   lineitem: LineItem;
+  title: string = "LineItems";
 
   constructor(private route: ActivatedRoute,
     private lineitemsvc: LineItemService,
@@ -30,7 +31,7 @@ export class LineItemDetailComponent implements OnInit {
   remove(): void {
     this.lineitemsvc.remove(this.lineitem)
       .subscribe(res => {
-        this.router.navigateByUrl("/lineitems/list");
+        this.router.navigateByUrl("/purchasereqeusts/list");
       });
   }
 

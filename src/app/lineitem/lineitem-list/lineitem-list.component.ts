@@ -15,7 +15,7 @@ export class LineItemListComponent implements OnInit {
   lineitems: LineItem[];
   purchaseRequest: PurchaseRequest;
   title: string = "LineItem List";
-  sortBy: string = "id";
+  sortBy: string = "";
 
   constructor(private lineitemSvc: LineItemService,
     private purchaserequestsvc: PurchaseRequestService,
@@ -24,12 +24,11 @@ export class LineItemListComponent implements OnInit {
   ngOnInit() {
     this.lineitemSvc.getPrli(this.route.snapshot.params.id).subscribe(res => {
       this.lineitems = res.data;
-      console.log(res);
     }
     );
     this.purchaserequestsvc.get(this.route.snapshot.params.id).subscribe(res => {
       this.purchaseRequest = res.data;
-    })
+    });
   }
 
   setSortBy(column: string): void {

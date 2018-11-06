@@ -2,7 +2,6 @@
   <div class=''>
     <div class='lefthalf'>
       <span class='component-title'>[{{title}}]</span>
-      <span><a routerLink='/lineitems/create'><img id='createnew' width='20' height='20' src='assets/lineitemCreate.png' title='Add New'></a></span>
     </div>
   </div>
   <div *ngIf="!lineitem">
@@ -10,40 +9,20 @@
   </div>
   <table class="table table-sm" *ngIf='lineitem'>
     <tr>
-      <td>Code</td>
-      <td>{{lineitem.code}}</td>
+      <td>UserName</td>
+      <td>{{lineitem.purchaseRequest.user.userName}}</td>
     </tr>
     <tr>
-      <td>Name</td>
-      <td>{{lineitem.name}}</td>
+      <td>Product Name</td>
+      <td>{{lineitem.product.name}}</td>
     </tr>
     <tr>
-      <td>Address</td>
-      <td>{{lineitem.address}}</td>
-    </tr>
-    <tr>
-      <td>City</td>
-      <td>{{lineitem.city}}</td>
-    </tr>
-    <tr>
-        <td>State</td>
-        <td>{{lineitem.state}}</td>
+        <td>Product Price</td>
+        <td>{{lineitem.product.price}}</td>
       </tr>
-      <tr>
-          <td>Zip</td>
-          <td>{{lineitem.zip}}</td>
-        </tr>
     <tr>
-      <td>Phone</td>
-      <td>{{lineitem.phoneNumber}}</td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>{{lineitem.email}}</td>
-    </tr>
-    <tr>
-      <td>PreApproved</td>
-      <td>{{lineitem.preApproved?"Yes":"No"}}</td>
+      <td>Quantity</td>
+      <td>{{lineitem.quantity}}</td>
     </tr>
     <tr>
       <td colspan="2">

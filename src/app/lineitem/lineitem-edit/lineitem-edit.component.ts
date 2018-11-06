@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LineItemService } from '../../services/lineitem.service'
 import { LineItem } from '../../classes/lineitem';
+import { PurchaseRequestService } from 'src/app/services/purchaserequest.service';
+import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/classes/product';
 
 @Component({
   selector: 'app-lineitem-edit',
@@ -11,10 +14,12 @@ import { LineItem } from '../../classes/lineitem';
 export class LineItemEditComponent implements OnInit {
 
   lineitem: LineItem;
+  products: Product[];
 
   constructor(private lineitemsvc: LineItemService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private productsvc: ProductService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.lineitemsvc.get(this.route.snapshot.params.id)
@@ -26,18 +31,22 @@ export class LineItemEditComponent implements OnInit {
           this.lineitem = res.data;
         }
       })
+    this.productsvc.list()
+    .subscribe(res => this.products = res.data);
   }
 
   save() {
     this.lineitemsvc.change(this.lineitem)
       .subscribe(res => {
         if(res.code != 0){
-          alert("Error Updating");
-        } else {
-          console.log(res);
-          this.router.navigateByUrl('/lineitems/list');
+          alert('Save Failed');
         }
+        this.router.navigateByUrl('/purchaserequests/list');
       })
+  }
+
+  compareFn(v1, v2): boolean {
+    return v1.id === v2.id;
   }
 
 }
