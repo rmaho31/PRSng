@@ -10,17 +10,15 @@ import { Menu } from '../menu'
 export class MenuComponent implements OnInit {
 
   menus: Menu[] = [
-    new Menu("Home"),
     new Menu("Users"),
     new Menu("Vendors"),
     new Menu("Products"),
-    new Menu("PurchaseRequests"),
-    new Menu("About")
+    new Menu("PurchaseRequests")
 
   ]
-  
+
   constructor(private route: ActivatedRoute) { }
-  
+
   ngOnInit() {
     console.log();
   }

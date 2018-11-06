@@ -5,10 +5,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link active" routerLink='/home/' id="dropdown01" 
+          aria-haspopup="true" aria-expanded="false">Home</a>
+      </li>
       <app-menu-item *ngFor="let menu of menus" [menu]="menu" [items]="menu"></app-menu-item>
+      <li class="nav-item dropdown">
+        <a class="nav-link active" routerLink='/about/' id="dropdown01"
+          aria-haspopup="true" aria-expanded="false">About</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input [(ngModel)]="searchText" name="searchText" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <input [(ngModel)]="searchText" name="searchText" class="form-control mr-sm-2" type="text" placeholder="Search"
+        aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
