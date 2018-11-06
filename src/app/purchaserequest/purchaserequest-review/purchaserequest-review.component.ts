@@ -3,6 +3,7 @@ import { PurchaseRequestService } from 'src/app/services/purchaserequest.service
 import { SystemService } from 'src/app/services/system.service';
 import { PurchaseRequest } from 'src/app/classes/purchaserequest';
 import { User } from 'src/app/classes/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-purchaserequest-review',
@@ -15,7 +16,8 @@ export class PurchaseRequestReviewComponent implements OnInit {
   sortBy: string = "id";
 
   constructor(private purchaserequestsvc: PurchaseRequestService,
-    private systemsvc: SystemService) { }
+    private systemsvc: SystemService,
+    private router: Router) { }
 
   ngOnInit() {
     this.purchaserequestsvc.review(this.systemsvc.user).subscribe(res => {
@@ -27,5 +29,17 @@ export class PurchaseRequestReviewComponent implements OnInit {
 
   setSortBy(column: string): void {
     this.sortBy = column;
+  }
+
+  approve(purchaserequest) {
+    this.purchaserequestsvc.approve(purchaserequest)
+      .subscribe(res => {
+      })
+  }
+
+  reject(purchaserequest) {
+    this.purchaserequestsvc.reject(purchaserequest)
+      .subscribe(res => {
+      })
   }
 }

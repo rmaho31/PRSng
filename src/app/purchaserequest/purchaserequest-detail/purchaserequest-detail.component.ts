@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PurchaseRequestService } from '../../services/purchaserequest.service';
 import { PurchaseRequest } from '../../classes/purchaserequest';
 import { delay } from 'rxjs/internal/operators';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-purchaserequest-detail',
@@ -16,6 +17,7 @@ export class PurchaseRequestDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private purchaserequestsvc: PurchaseRequestService,
+    private systemsvc: SystemService,
     private router: Router) { }
 
   ngOnInit() {
@@ -31,6 +33,13 @@ export class PurchaseRequestDetailComponent implements OnInit {
     this.purchaserequestsvc.remove(this.purchaserequest)
       .subscribe(res => {
         this.router.navigateByUrl("/purchaserequests/list");
+      });
+  }
+
+  submit(): void {
+    this.purchaserequestsvc.subforReview(this.purchaserequest)
+      .subscribe(res => {
+        this.router.navigateByUrl("/purchaserequests/list")
       });
   }
 

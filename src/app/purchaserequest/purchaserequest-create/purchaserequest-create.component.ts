@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { PurchaseRequestService } from '../../services/purchaserequest.service'
 import { PurchaseRequest } from '../../classes/purchaserequest'
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-purchaserequest-create',
@@ -12,15 +13,16 @@ import { PurchaseRequest } from '../../classes/purchaserequest'
 export class PurchaseRequestCreateComponent implements OnInit {
 
   purchaserequest: PurchaseRequest = new PurchaseRequest();
-  password2: String = "";
 
   constructor(private purchaserequestsvc: PurchaseRequestService,
+              private systemsvc: SystemService,
               private router: Router) { }
 
   ngOnInit() {
   }
 
   create() {
+    this.purchaserequest.user = this.systemsvc.getUser();
     this.purchaserequestsvc.add(this.purchaserequest)
       .subscribe(res => {
         if(res.code != 0){

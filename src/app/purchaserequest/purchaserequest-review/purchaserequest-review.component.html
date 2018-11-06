@@ -1,10 +1,12 @@
 <div class='component-content'>
   <div class=''>
     <div class='lefthalf'>
-      <span class='component-title'>[{{title}}]</span>
+      <span class='component-title'>{{title}} | </span>
     </div>
   </div>
-  <p *ngIf='!purchaserequests'>Loading ...</p>
+  <div *ngIf='!purchaserequests'>
+    <img src='assets/loading.gif'>
+  </div>
   <table class='table table-sm' *ngIf='purchaserequests'>
     <tr>
       <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('id')">Id</a></th>
@@ -16,13 +18,15 @@
     </tr>
     <tr *ngFor='let purchaserequest of purchaserequests | sort:sortBy'>
       <td>{{purchaserequest.id}}</td>
-      <td>{{purchaserequest.userName}}</td>
+      <td>{{purchaserequest.user.userName}}</td>
       <td>{{purchaserequest.description}}</td>
-      <td>{{purchaserequest.status}}
-      <td>{{purchaserequest.total | currency}}
+      <td>{{purchaserequest.status}}</td>
+      <td>{{purchaserequest.total | currency}}</td>
       <td class='actions'>
-        <a routerLink='/lineitems/list/{{purchaserequest.id}}'><img src='assets/requestLines.png' width='20'
-            height='20' title='Review'></a>
+        <a routerLink='/purchaserequests/list/' (click)='approve(purchaserequest)'><img src='assets/approve.png' width='20' height='20'
+            title='Review'></a>
+        <a routerLink='/purchaserequests/list/' (click)='reject(purchaserequest)'><img src='assets/reject.png' width='20' height='20'
+            title='Review'></a>
       </td>
     </tr>
   </table>
