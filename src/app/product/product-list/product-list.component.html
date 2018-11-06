@@ -1,6 +1,6 @@
 <div class='component-content'>
   <div class='lefthalf'>
-    <span class='component-title'>{{title}}</span>
+    <span class='component-title'>{{title}} | </span>
     <span><a routerLink='/products/create'>
         <img id='createnew' width='20' height='20' src='assets/createNew.png' title='Add New'></a>
     </span>
@@ -11,16 +11,16 @@
 </div>
 <table class="table table-sm" *ngIf='products'>
   <tr>
-    <th class="table-secondary btn-link"><u>Vendor Name</u></th>
-    <th class="table-secondary btn-link"><u>PartNumber</u></th>
-    <th class="table-secondary btn-link"><u>Name</u></th>
-    <th class="table-secondary btn-link"><u>Price</u></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('vendor.name')"><u>Vendor Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('partNumber')"><u>PartNumber</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('name')"><u>Name</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('price')"><u>Price</u></a></th>
   </tr>
-  <tr *ngFor='let product of products | search : searchText'>
+  <tr *ngFor='let product of products  | sort: {sortBy: sortBy, direction: direction}'>
     <td>{{product.vendor.name}}</td>
     <td>{{product.partNumber}}</td>
     <td>{{product.name}}</td>
-    <td>{{product.price}}</td>
+    <td>{{product.price | currency}}</td>
     <td class='actions'>
       <a routerLink='/products/detail/{{product.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
       <a routerLink='/products/edit/{{product.id}}'><img src='assets/userEdit.png' width='30' height='30' title='Edit'></a>

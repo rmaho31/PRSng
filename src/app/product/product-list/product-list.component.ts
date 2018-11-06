@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   title: string = "Product List";
   sortBy: string = "id";
   searchTerm: string = '';
+  direction: number = 1;
 
   constructor(private productSvc: ProductService) { }
 
@@ -25,5 +26,6 @@ export class ProductListComponent implements OnInit {
 
   setSortBy(column: string): void {
     this.sortBy = column;
+    this.direction *= -1;
   }
 }
