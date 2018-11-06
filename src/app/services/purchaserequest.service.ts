@@ -39,6 +39,19 @@ export class PurchaseRequestService {
   review(user: User): Observable<JsonResponse> {
 		return this.http.post(url+"List/Review", user) as Observable<JsonResponse>;
   }
+
+  subforReview(purchaserequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url+"SubmitForReview", purchaserequest) as Observable<JsonResponse>;
+  }
+
+  approve(purchaserequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url+"List/ApprovePR", purchaserequest) as Observable<JsonResponse>;
+  }
+
+  reject(purchaserequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url+"List/RejectPR", purchaserequest) as Observable<JsonResponse>;
+  }
+
   
   constructor(private http: HttpClient) { }
 
