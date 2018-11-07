@@ -35,11 +35,14 @@ export class PurchaseRequestReviewComponent implements OnInit {
     this.purchaserequestsvc.approve(purchaserequest)
       .subscribe(res => {
       })
+      this.router.navigateByUrl('purchaserequests/list');
   }
 
   reject(purchaserequest) {
+    purchaserequest.reasonForRejection = prompt("Reason For Rejection?");
     this.purchaserequestsvc.reject(purchaserequest)
       .subscribe(res => {
       })
+      this.router.navigateByUrl('purchaserequests/list');
   }
 }

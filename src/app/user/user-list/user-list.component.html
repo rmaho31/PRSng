@@ -1,6 +1,6 @@
 <div class='component-content'>
   <div class="container center">
-    <h1 class="display-4">{{title}} | <span><a routerLink='/users/create'>
+    <h1 class="display-4">{{title}} | <span *ngIf="this.syssvc.user.admin"><a routerLink='/users/create'>
           <img id='createnew' width='40' height='40' src='assets/userCreate.png' title='Add New'></a>
       </span></h1>
   </div>
@@ -26,8 +26,8 @@
       <td>{{user.reviewer | bool}}</td>
       <td>{{user.admin | bool}}</td>
       <td class='actions'>
-        <a routerLink='/users/detail/{{user.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
-        <a routerLink='/users/edit/{{user.id}}'><img src='assets/userEdit.png' width='30' height='30' title='Edit'></a>
+        <a routerLink='/users/detail/{{user.id}}'><img src='assets/userDetail.png' width='50' height='50' title='Detail'></a>
+        <span *ngIf="this.syssvc.user.admin || this.syssvc.user.id === user.id"><a routerLink='/users/edit/{{user.id}}'><img src='assets/userEdit.png' width='50' height='50' title='Edit'></a></span>
       </td>
     </tr>
   </table>

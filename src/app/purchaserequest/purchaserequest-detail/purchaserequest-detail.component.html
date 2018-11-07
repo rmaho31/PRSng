@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td>Date Needed</td>
-      <td>{{purchaserequest.dateNeeded}}</td>
+      <td>{{purchaserequest.dateNeeded | date}}</td>
     </tr>
     <tr>
       <td>Delivery Mode</td>
@@ -32,11 +32,11 @@
     </tr>
     <tr>
       <td>Total</td>
-      <td>{{purchaserequest.total}}</td>
+      <td>{{purchaserequest.total | currency}}</td>
     </tr>
     <tr>
       <td>Submitted Date</td>
-      <td>{{purchaserequest.submittedDate}}</td>
+      <td>{{purchaserequest.submittedDate | date}}</td>
     </tr>
     <tr>
       <td>Reason For Rejection</td>

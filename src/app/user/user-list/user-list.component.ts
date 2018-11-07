@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../classes/user';
 import { BoolDisplayPipe } from '../../pipe/bool-display.pipe';
 import { SortPipe } from '../../pipe/sort.pipe';
+import { SystemService } from 'src/app/services/system.service';
 
 @Component({
   selector: 'app-user-list',
@@ -15,12 +16,13 @@ export class UserListComponent implements OnInit {
   sortBy: string = "userName";
   direction: number = 1;
 
-  constructor(private userSvc: UserService) { }
+  constructor(private userSvc: UserService,
+    private syssvc: SystemService) { }
 
   ngOnInit() {
     this.userSvc.list().subscribe(res => {
-                                  this.users = res.data;
-      }
+      this.users = res.data;
+    }
     );
   }
 

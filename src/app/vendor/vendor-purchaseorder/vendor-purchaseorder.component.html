@@ -1,40 +1,26 @@
 <div class='component-content'>
-  <div class="container center">
-    <h1 class="display-4">{{title}}</h1>
-  </div>
   <div *ngIf="!vendor">
     <img src="assets/loading.gif">
   </div>
   <table class="table table-sm" *ngIf='vendor'>
     <tr>
-      <td>Code</td>
-      <td>{{vendor.code}}</td>
-      <td>Name</td>
-      <td>{{vendor.name}}</td>
+      <td><h1>[{{vendor.name}}]</h1></td>
+      <td></td>
+      <td><h1 class="display-4">{{title}}</h1></td>
     </tr>
     <tr>
-      <td>Address</td>
-      <td>{{vendor.address}}</td>
-      <td>City</td>
-      <td>{{vendor.city}}</td>
+      <td>Address: {{vendor.address}}</td>
+      <td>City: {{vendor.city}}</td>
+      <td></td>
     </tr>
     <tr>
-      <td>State</td>
-      <td>{{vendor.state}}</td>
-      <td>Zip</td>
-      <td>{{vendor.zip}}</td>
+      <td>State: {{vendor.state}}</td>
+      <td>Zip: {{vendor.zip}}</td>
+      <td>Discounts applied at > 1000(10%) 5000(20%) 10000(30%)</td>
     </tr>
     <tr>
-      <td>Phone</td>
-      <td>{{vendor.phoneNumber}}</td>
-      <td>Email</td>
-      <td>{{vendor.email}}</td>
-    </tr>
-    <tr>
-      <td>PreApproved</td>
-      <td>{{vendor.preApproved?"Yes":"No"}}</td>
-      <td>Total PO Price</td>
-      <td>{{totalPrice | currency}}</td>
+      <td>Phone: {{vendor.phoneNumber}}</td>
+      <td>Email: {{vendor.email}}</td>
     </tr>
   </table>
 </div>
@@ -46,17 +32,47 @@
 </div>
 <table class="table table-sm" *ngIf='lineitems'>
   <tr>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('name')"><u>Product</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('product.price')"><u>Price</u></a></th>
-    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold" (click)="setSortBy('quantity')"><u>Quantity</u></a></th>
+    <th><u>PartNumber</u></th>
+    <th><u>Description</u></th>
+    <th><u>Quantity</u></th>
+    <th><u>Price</u></th>
+    <th><u>Total Price</u></th>
   </tr>
-  <tr *ngFor='let lineitem of lineitems | sort: {sortBy: sortBy, direction: direction}'>
+  <tr *ngFor='let lineitem of lineitems'>
+    <td>{{lineitem.product.partNumber}}</td>
     <td>{{lineitem.product.name}}</td>
-    <td>{{lineitem.product.price}}</td>
     <td>{{lineitem.quantity}}</td>
-    <td class='actions'>
-      <a routerLink='/lineitems/detail/{{lineitem.id}}'><img src='assets/userDetail.png' width='30' height='30' title='Detail'></a>
-      <a routerLink='/lineitems/edit/{{lineitem.id}}'><img src='assets/userEdit.png' width='30' height='30' title='Edit'></a>
-    </td>
+    <td>{{lineitem.product.price | currency}}</td>
+    <td>{{lineitem.quantity*lineitem.product.price | currency}} </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Subtotal:</td>
+    <td>{{totalPrice | currency}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Tax:</td>
+    <td>{{totalPrice*.05 | currency}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Shipping:</td>
+    <td>{{totalPrice*.01 | currency}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total:</td>
+    <td>{{totalPrice*1.05*1.01 | currency}}</td>
   </tr>
 </table>
+<div><p class="center">If you have any questions please contact bootcamp@email.com</p></div>
+<div><button (click)="print()" class='btn' title='Print'>Print</button></div>

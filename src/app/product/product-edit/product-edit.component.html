@@ -2,14 +2,13 @@
   <div class="container center">
     <h1 class="display-4">{{title}}</h1>
   </div>
-  <div *ngIf='!product'>
+  <div *ngIf='!product && !vendors'>
     <img src='assets/loading.gif'>
   </div>
-  <div *ngIf='product'>
-    <form #myForm="ngForm">
+  <div *ngIf='product && vendors'>
       <div class="form-group row">
         <label class='col-form-label col-sm-2' for="vendor">Vendor:</label>
-        <div class=' col-sm-6'>
+        <div class=' col-sm-8'>
           <select [(ngModel)]='product.vendor' class='form-control' name='vendor' id='vendor' [compareWith]='compareFn'>
             <option *ngFor="let vendor of vendors" [ngValue]="vendor" [selected]="vendor.id === product.vendor.id">{{vendor.name}}</option>
           </select>
@@ -61,6 +60,5 @@
       <div class='form-group'>
         <button (click)='save()' class='btn btn-primary' [disabled]="!myForm.valid">Update</button>
       </div>
-    </form>
   </div>
 </div>

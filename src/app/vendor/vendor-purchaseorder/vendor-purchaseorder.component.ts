@@ -13,7 +13,7 @@ import { LineItem } from 'src/app/classes/lineitem';
 export class VendorPurchaseOrderComponent implements OnInit {
   vendor: Vendor;
   lineitems: LineItem[];
-  title: string = "Vendor Purchase Order";
+  title: string = "Purchase Order";
   sortBy: string = 'id';
   direction: number = 1;
   totalPrice: number = 0;
@@ -29,16 +29,18 @@ export class VendorPurchaseOrderComponent implements OnInit {
       });
     this.lineitemsvc.getPrliVendor(this.route.snapshot.params.id)
       .subscribe(res => {
+        console.log(res);
         this.lineitems = res.data;
         for (let li of res.data) {
           this.totalPrice += li.product.price * li.quantity;
         }
         if (this.totalPrice < 1000) {
-          this.totalPrice *= .90 * 1.05;
         } else if (this.totalPrice < 5000) {
-          this.totalPrice *= .80 * 1.05;
+          this.totalPrice *= .90;
+        } else if (this.totalPrice < 10000) {
+          this.totalPrice *= .80;
         } else {
-          this.totalPrice *= .70 * 1.05;
+          this.totalPrice *= .70;
         }
       });
   }
@@ -46,6 +48,10 @@ export class VendorPurchaseOrderComponent implements OnInit {
   setSortBy(column: string): void {
     this.sortBy = column;
     this.direction *= -1;
+  }
+
+  print() {
+    window.print();
   }
 
 

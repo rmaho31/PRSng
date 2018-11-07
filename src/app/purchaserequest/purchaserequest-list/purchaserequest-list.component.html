@@ -3,7 +3,7 @@
     <h1 class="display-4">{{title}} | <span><a routerLink='/purchaserequests/create'>
           <img id='createnew' width='40' height='40' src='assets/createNew.png' title='Add New'></a> |
       </span>
-      <span><a routerLink='/purchaserequests/review'>
+      <span *ngIf="this.syssvc.user.reviewer"><a routerLink='/purchaserequests/review'>
           Review</a>
       </span></h1>
   </div>
@@ -33,11 +33,11 @@
       <td>{{purchaserequest.submittedDate | date}}</td>
       <td>{{purchaserequest.reasonForRejection}}</td>
       <td class='actions'>
-        <a routerLink='/purchaserequests/detail/{{purchaserequest.id}}'><img src='assets/userDetail.png' width='30'
-            height='30' title='Detail'></a>
-        <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}'><img src='assets/userEdit.png' width='30' height='30'
+        <a routerLink='/purchaserequests/detail/{{purchaserequest.id}}'><img src='assets/userDetail.png' width='50'
+            height='50' title='Detail'></a>
+        <a routerLink='/purchaserequests/edit/{{purchaserequest.id}}'><img src='assets/userEdit.png' width='50' height='50'
             title='Edit'></a>
-        <a routerLink='/lineitems/list/{{purchaserequest.id}}'><img src='assets/requestLines.png' width='20' height='20'
+        <a routerLink='/lineitems/list/{{purchaserequest.id}}'><img src='assets/requestLines.png' width='50' height='50'
             title='LineItems'></a>
       </td>
     </tr>
