@@ -38,6 +38,10 @@ export class LineItemService {
   getPrli(id): Observable<JsonResponse> {
     return this.http.get(url+"Get/Prli/"+id) as Observable<JsonResponse>;
   }
+
+  getPrliVendor(id): Observable<JsonResponse> {
+    return this.http.get(url+"List/Vendors/"+id) as Observable<JsonResponse>;
+  }
   
   constructor(private http: HttpClient) { }
 
