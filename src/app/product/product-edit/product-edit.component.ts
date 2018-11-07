@@ -12,7 +12,7 @@ import { VendorService } from 'src/app/services/vendor.service';
 })
 export class ProductEditComponent implements OnInit {
   vendors: Vendor[];
-  
+  title: string = "Product Edit"  
   product: Product;
 
   constructor(private productsvc: ProductService,

@@ -14,6 +14,7 @@ import { SystemService } from 'src/app/services/system.service';
 export class PurchaseRequestDetailComponent implements OnInit {
 
   purchaserequest: PurchaseRequest;
+  title: string = "PurchaseRequest Detail"
 
   constructor(private route: ActivatedRoute,
     private purchaserequestsvc: PurchaseRequestService,

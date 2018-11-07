@@ -13,6 +13,7 @@ import { delay } from 'rxjs/internal/operators';
 export class ProductDetailComponent implements OnInit {
 
   product: Product;
+  title: string = "Product Detail"
 
   constructor(private route: ActivatedRoute,
     private productsvc: ProductService,

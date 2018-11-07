@@ -5,10 +5,13 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
+import { VendorPurchaseOrderComponent } from './vendor/vendor-purchaseorder/vendor-purchaseorder.component';
+
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -23,6 +26,7 @@ import { LineItemListComponent } from './lineitem/lineitem-list/lineitem-list.co
 import { LineItemCreateComponent } from './lineitem/lineitem-create/lineitem-create.component';
 import { LineItemDetailComponent } from './lineitem/lineitem-detail/lineitem-detail.component';
 import { LineItemEditComponent } from './lineitem/lineitem-edit/lineitem-edit.component';
+
 
 
 import { HomeComponent } from './home/home/home.component';
@@ -41,6 +45,7 @@ const routes: Routes = [
   {path:'vendors/create', component: VendorCreateComponent},
   {path:'vendors/detail/:id', component: VendorDetailComponent},
   {path:'vendors/edit/:id', component: VendorEditComponent},
+  {path:'vendors/purchaseorder/:id', component: VendorPurchaseOrderComponent},
   {path:'products/list', component: ProductListComponent},
   {path:'products/create', component: ProductCreateComponent},
   {path:'products/detail/:id', component: ProductDetailComponent},

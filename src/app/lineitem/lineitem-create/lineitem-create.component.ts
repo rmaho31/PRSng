@@ -15,7 +15,8 @@ import { Product } from 'src/app/classes/product';
 export class LineItemCreateComponent implements OnInit {
 
   lineitem: LineItem = new LineItem();
-  products: Product[]
+  products: Product[];
+  title: string = "LineItem Create"
 
   constructor(private lineitemsvc: LineItemService,
               private router: Router,

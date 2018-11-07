@@ -15,7 +15,7 @@ export class ProductCreateComponent implements OnInit {
   vendors: Vendor[];
 
   product: Product = new Product();
-  password2: String = "";
+  title: string = "Product Create"
 
   constructor(private vendorsvc: VendorService,
     private productsvc: ProductService,

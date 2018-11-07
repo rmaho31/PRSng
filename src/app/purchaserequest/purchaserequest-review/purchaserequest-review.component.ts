@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PurchaseRequestReviewComponent implements OnInit {
   purchaserequests: PurchaseRequest[];
-  title: string = "PurchaseRequest List";
+  title: string = "PurchaseRequest Review";
   sortBy: string = "id";
 
   constructor(private purchaserequestsvc: PurchaseRequestService,

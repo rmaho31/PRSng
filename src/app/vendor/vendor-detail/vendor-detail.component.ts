@@ -13,6 +13,7 @@ import { delay } from 'rxjs/internal/operators';
 export class VendorDetailComponent implements OnInit {
 
   vendor: Vendor;
+  title: string = "Vendor Detail"
 
   constructor(private route: ActivatedRoute,
     private vendorsvc: VendorService,

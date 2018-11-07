@@ -13,6 +13,7 @@ import { SystemService } from 'src/app/services/system.service';
 export class PurchaseRequestCreateComponent implements OnInit {
 
   purchaserequest: PurchaseRequest = new PurchaseRequest();
+  title: string = "PurchaseRequest Create"
 
   constructor(private purchaserequestsvc: PurchaseRequestService,
               private systemsvc: SystemService,

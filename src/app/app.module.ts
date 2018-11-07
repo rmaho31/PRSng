@@ -36,7 +36,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { BoolDisplayPipe } from './pipe/bool-display.pipe';
 import { SortPipe } from './pipe/sort.pipe';
 import { PurchaseRequestReviewComponent } from './purchaserequest/purchaserequest-review/purchaserequest-review.component';
-import { SearchPipe } from './pipe/search.pipe'
+import { SearchPipe } from './pipe/search.pipe';
+import { SearchModalComponent } from './modals/searchmodal/searchmodal.component';
+import { VendorPurchaseOrderComponent } from './vendor/vendor-purchaseorder/vendor-purchaseorder.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { SearchPipe } from './pipe/search.pipe'
     BoolDisplayPipe,
     SortPipe,
     PurchaseRequestReviewComponent,
-    SearchPipe
+    SearchPipe,
+    SearchModalComponent,
+    VendorPurchaseOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +109,8 @@ import { SearchPipe } from './pipe/search.pipe'
     LineItemEditComponent,
     LineItemListComponent,
     LineItemDetailComponent,
-    PurchaseRequestReviewComponent]
+    PurchaseRequestReviewComponent,
+    SearchModalComponent,
+    VendorPurchaseOrderComponent]
 })
 export class AppModule { }

@@ -13,7 +13,7 @@ import { delay } from 'rxjs/internal/operators';
 export class LineItemDetailComponent implements OnInit {
 
   lineitem: LineItem;
-  title: string = "LineItems";
+  title: string = "LineItem Detail";
 
   constructor(private route: ActivatedRoute,
     private lineitemsvc: LineItemService,

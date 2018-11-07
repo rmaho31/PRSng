@@ -11,6 +11,7 @@ import { Vendor } from '../../classes/vendor';
 export class VendorEditComponent implements OnInit {
 
   vendor: Vendor;
+  title: string = "Vendor Edit"
 
   constructor(private vendorsvc: VendorService,
     private route: ActivatedRoute,

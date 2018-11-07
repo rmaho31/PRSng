@@ -13,6 +13,7 @@ export class VendorCreateComponent implements OnInit {
 
   vendor: Vendor = new Vendor();
   password2: String = "";
+  title: string = "Vendor Create"
 
   constructor(private vendorsvc: VendorService,
               private router: Router) { }

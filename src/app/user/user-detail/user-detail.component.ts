@@ -13,6 +13,7 @@ import { delay } from 'rxjs/internal/operators';
 export class UserDetailComponent implements OnInit {
 
   user: User;
+  title: string = "User Detail"
 
   constructor(private route: ActivatedRoute,
     private usersvc: UserService,

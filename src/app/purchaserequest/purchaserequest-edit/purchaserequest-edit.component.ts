@@ -11,6 +11,7 @@ import { PurchaseRequest } from '../../classes/purchaserequest';
 export class PurchaseRequestEditComponent implements OnInit {
 
   purchaserequest: PurchaseRequest;
+  title: string = "PurchaseRequest Edit"
 
   constructor(private purchaserequestsvc: PurchaseRequestService,
     private route: ActivatedRoute,

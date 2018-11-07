@@ -15,6 +15,7 @@ export class LineItemEditComponent implements OnInit {
 
   lineitem: LineItem;
   products: Product[];
+  title: string = "Lineitem Edit"
 
   constructor(private lineitemsvc: LineItemService,
     private router: Router,

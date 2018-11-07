@@ -13,6 +13,7 @@ export class UserCreateComponent implements OnInit {
 
   user: User = new User();
   password2: String = "";
+  title: string = "Users Create"
 
   constructor(private usersvc: UserService,
               private router: Router) { }
@@ -28,6 +29,10 @@ export class UserCreateComponent implements OnInit {
         }
         this.router.navigateByUrl('/users/list');
       })
+  }
+
+  formCheck() {
+    
   }
   
 

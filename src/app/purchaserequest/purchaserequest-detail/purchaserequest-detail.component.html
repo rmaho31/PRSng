@@ -1,7 +1,10 @@
-<div *ngIf="!purchaserequest">
-  <img src="assets/loading.gif">
-</div>
-<div>
+<div class="component-content">
+  <div class="container center">
+    <h1 class="display-4">{{title}}</h1>
+  </div>
+  <div *ngIf="!purchaserequest">
+    <img src="assets/loading.gif">
+  </div>
   <table class="table table-sm" *ngIf='purchaserequest'>
     <tr>
       <td>User</td>
